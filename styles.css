@@ -1,6 +1,7 @@
 * {
     margin: 0px;
     padding: 0px;
+    font-family: 'Aldrich';
 }
 
 body {
@@ -10,8 +11,8 @@ body {
 header {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
-    margin-bottom: 100px;
+    margin-top: 30px;
+    margin-bottom: 75px;
     font-size: 30px;
 }
 
@@ -37,9 +38,21 @@ header {
 
 .colorSettings {
     display: flex;
+    align-items: center;
     flex-direction: column;
     gap: 10px;
 }
+
+.changeColorButton {
+    width: 120px;
+    height: 60px;
+}
+
+.colorInput {
+    height: 30px;
+    width: 70px;
+}
+
 
 .settings {
 
@@ -64,11 +77,15 @@ button {
     font-size: 23px;
     font-weight: 900;
     border-radius: 10px;
-
+    text-align: center;
 }
 
 button:hover {
     background-color: azure;
+}
+
+.rainbowButton {
+    width: 150px;
 }
 
 div input {
@@ -79,19 +96,25 @@ div input {
 footer {
     display: flex;
     justify-content: center;
-
-    /* position: fixed;
-    bottom: 0px;
-    display: flex;
-    justify-content: center;
-    text-align: center; */
 }
 footer div {
     position: fixed;
     bottom: 10px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    
 }
 
 a {
     text-decoration: none;
     color: black;
+    font-size: 19px;
+}
+#icon {
+    transition: 0.5s;
+}
+
+#icon:hover {
+    transform: rotate(360deg) scale(1.2);
 }

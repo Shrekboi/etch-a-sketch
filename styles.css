@@ -28,11 +28,7 @@ header {
     flex-wrap: wrap;
     border: solid 5px black;
     align-content: flex-start; 
-
-
 } 
-
-
 
 .div-container div {
     background-color: white;

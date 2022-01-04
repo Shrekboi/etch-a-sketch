@@ -1,13 +1,8 @@
 const container = document.querySelector(".div-container")
 const clearButton = document.querySelector(".actualButton")
 
-let color = "black";
+let color = "green"; //default color
 
-
-function setNewColor() {
-    rainbowState = false
-    color = document.querySelector(".colorInput").value
-}
 
 function createDivColumn(times) {
 
@@ -30,12 +25,19 @@ function createGrid(times) {
     }
 }
 
-createGrid(16)
+createGrid(16) //create intial grid
 
 function resetSquares() {
     while (container.hasChildNodes()) {
         container.removeChild(container.lastChild)
     }
+}
+
+let rainbowState = false
+
+function setNewColor() {
+    rainbowState = false
+    color = document.querySelector(".colorInput").value
 }
 
 function updateTheSquares() {
@@ -44,9 +46,9 @@ function updateTheSquares() {
 
     squares.forEach(squares => {
         squares.addEventListener("mouseover", () => {
-            if (rainbowState == true) {
-            let randomColor = Math.floor(Math.random() * 16777215).toString(16);
-            squares.style.background = "#" + randomColor
+            if (rainbowState) {
+                let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+                squares.style.background = "#" + randomColor
             }
             else {
                 squares.style.background = color
@@ -55,12 +57,7 @@ function updateTheSquares() {
     })
 }
 
-updateTheSquares();
-
 // buttons
-
-let rainbowState = false
-
 const rainbowButton = document.querySelector(".rainbowButton")
 rainbowButton.addEventListener("click", () => {
     rainbowState = true
@@ -78,3 +75,5 @@ clearButton.addEventListener("click", () => {
         updateTheSquares();
     }
 })
+
+updateTheSquares(); //running the actual program

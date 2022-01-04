@@ -1,6 +1,14 @@
 const container = document.querySelector(".div-container")
 const clearButton = document.querySelector(".actualButton")
 
+let color = "black";
+
+
+function setNewColor() {
+    rainbowState = false
+    color = document.querySelector(".colorInput").value
+}
+
 function createDivColumn(times) {
 
     for (let i = 0; i < times; i++) {
@@ -30,28 +38,43 @@ function resetSquares() {
     }
 }
 
-clearButton.addEventListener("click", () => {
-    resetSquares();
-    let newGridSize = prompt("New grid size. Less than 60.")
-    if (newGridSize <= 60) {
-        createGrid(newGridSize);
-        updateTheSquares();
-    }
-
-})
-
 function updateTheSquares() {
 
     const squares = document.querySelectorAll(".square")
 
     squares.forEach(squares => {
         squares.addEventListener("mouseover", () => {
+            if (rainbowState == true) {
             let randomColor = Math.floor(Math.random() * 16777215).toString(16);
             squares.style.background = "#" + randomColor
+            }
+            else {
+                squares.style.background = color
+            }
         })
     })
-
-
 }
 
 updateTheSquares();
+
+// buttons
+
+let rainbowState = false
+
+const rainbowButton = document.querySelector(".rainbowButton")
+rainbowButton.addEventListener("click", () => {
+    rainbowState = true
+})
+
+clearButton.addEventListener("click", () => {
+    resetSquares();
+    let newGridSize = prompt("New grid size. Less than 60.")
+    if (newGridSize <= 60 && newGridSize > 1) {
+        createGrid(newGridSize);
+        updateTheSquares();
+    }
+    else {
+        createGrid(16);
+        updateTheSquares();
+    }
+})

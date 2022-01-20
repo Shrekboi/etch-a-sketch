@@ -1,5 +1,9 @@
 const container = document.querySelector(".div-container")
 const clearButton = document.querySelector(".actualButton")
+const slider = document.querySelector("#range")
+const gridSizeValue = document.querySelector("#grid-size")
+
+
 
 let color = "green"; //default color
 
@@ -65,15 +69,28 @@ rainbowButton.addEventListener("click", () => {
 
 clearButton.addEventListener("click", () => {
     resetSquares();
-    let newGridSize = prompt("New grid size. Less than 60.")
-    if (newGridSize <= 60 && newGridSize > 1) {
-        createGrid(newGridSize);
-        updateTheSquares();
-    }
-    else {
-        createGrid(16);
-        updateTheSquares();
-    }
+    createGrid(16);
+    updateTheSquares(); 
+    slider.value = 16
+    gridSizeValue.innerHTML = `${slider.value}x${slider.value}`
+    // let newGridSize = prompt("New grid size. Less than 60.")
+    // if (newGridSize <= 60 && newGridSize > 1) {
+    //     createGrid(newGridSize);
+    //     updateTheSquares();
+    // }
+    // else {
+    //     createGrid(16);
+    //     updateTheSquares();
+    // }
+})
+
+
+slider.addEventListener("change", () => {
+    resetSquares();
+    createGrid(slider.value);
+    updateTheSquares();
+    gridSizeValue.innerHTML = `${slider.value}x${slider.value}`
+
 })
 
 updateTheSquares(); //running the actual program

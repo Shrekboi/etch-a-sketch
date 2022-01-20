@@ -93,13 +93,16 @@ div input {
 }
 
 
+.size-changer {
+    
+}
+
 footer {
+    margin-top: 50px;
     display: flex;
     justify-content: center;
 }
 footer div {
-    position: fixed;
-    bottom: 10px;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: 900;
     font-size: 18px;
@@ -118,3 +121,15 @@ a {
 #icon:hover {
     transform: rotate(360deg) scale(1.2);
 }
+
+
+/* @media only screen and (max-width: 630px) {
+    .div-container {
+        width: 300px;
+        height: 300px;
+    }
+    footer {
+        margin-top: 100px;
+    }
+} */
+
